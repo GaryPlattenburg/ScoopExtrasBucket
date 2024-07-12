@@ -10,7 +10,7 @@
         }
     },
     "post_install": [
-        "$env:SCOOP\\apps\\msvc-pbt\\current\\portablebuildtools.exe accept_license target=x64 host=x64 env=user path='$env:SCOOP\\apps\\msvc-pbt\\current\\BuildTools'",
+        "$dir\\portablebuildtools.exe accept_license target=x64 host=x64 env=user path='$dir\\BuildTools'",
         "if (!$?) { Write-Warning 'Running PortableBuildTools failed. Installation incomplete.' }",
         "",
         "@'",
@@ -42,9 +42,9 @@
         "$env:LIB = \"$env:VCToolsInstallDir\\lib\\$env:VSCMD_ARG_TGT_ARCH;$env:WindowsSDKDir\\Lib\\$env:WindowsSDKVersion\\ucrt\\$env:VSCMD_ARG_TGT_ARCH;$env:WindowsSDKDir\\Lib\\$env:WindowsSDKVersion\\um\\$env:VSCMD_ARG_TGT_ARCH\"",
         "$env:BUILD_TOOLS_BIN = \"$env:VCToolsInstallDir\\bin\\Hostx64\\$env:VSCMD_ARG_TGT_ARCH;$env:WindowsSDKDir\\bin\\$env:WindowsSDKVersion\\$env:VSCMD_ARG_TGT_ARCH;$env:WindowsSDKDir\\bin\\$env:WindowsSDKVersion\\$env:VSCMD_ARG_TGT_ARCH\\ucrt\"",
         "$env:PATH = \"$env:BUILD_TOOLS_BIN;$env:PATH\"",
-        "'@ | Out-File (Join-Path '$env:SCOOP\\apps\\msvc-pbt\\current\\BuildTools' 'devcmd.ps1') -Encoding ascii"
+        "'@ | Out-File (Join-Path '$dir\\BuildTools' 'devcmd.ps1') -Encoding ascii"
     ],
-    "notes": "To initialize build environment, run $env:SCOOP\\apps\\msvc-pbt\\current\\BuildTools\\devcmd.ps1",
+    "notes": "To initialize build environment, run $dir\\BuildTools\\devcmd.ps1",
     "checkver": "github",
     "autoupdate": {
         "architecture": {
