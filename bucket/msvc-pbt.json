@@ -10,7 +10,7 @@
         }
     },
     "post_install": [
-        "$dir\\portablebuildtools.exe accept_license target=x64 host=x64 env=user path='$dir\\BuildTools'",
+        "\"$dir\\PortableBuildTools.exe\" accept_license target=x64 host=x64 env=user path='$dir\\BuildTools'",
         "if (!$?) { Write-Warning 'Running PortableBuildTools failed. Installation incomplete.' }",
         "",
         "@'",
